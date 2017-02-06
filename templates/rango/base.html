@@ -15,14 +15,17 @@
 	</head>
 	<body>
 		<div>
+			{% block sidebar_block %}
+			{% get_category_list category %}
+			{% endblock %}
+		</div>
+		<div>
 			{% block body_block %}
 			{% endblock %}
 		</div>
 		<hr />
-		
 		<div>
-			{% block sidebar_block %}
-			{% get_category_list category %}
+			
 			<ul>
 				<li><a href="{% url 'add_category' %}">Add a New Category</a></li>
 				<li><a href="{% url 'about' %}">About</a></li>
@@ -30,7 +33,8 @@
 				<li><a href="{% url 'register' %}">Sign Up</a></li>
 				<li><a href="{% url 'login' %}">Login</a></li>
 			</ul>
-			{% endblock %}
-		</div>		
+			
+		</div>	
+		
 	</body>
 </html>
