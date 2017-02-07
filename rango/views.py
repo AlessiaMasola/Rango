@@ -22,7 +22,7 @@ def index(request):
 	# Retrieve the top 5 only - or all if less than 5.
 	# Place the list in our context_dict dictionary
 	# that will be passed to the template engine.
-	
+	request.session.set_test_cookie()
 	category_list = Category.objects.order_by('-likes')[:5]
 	page_list = Page.objects.order_by('-views')[:5]
 	context_dict = {'categories': category_list, 'pages': page_list}
@@ -32,6 +32,10 @@ def index(request):
 
 def about(request):
 	# prints out whether the method is a GET or a POST
+	if request.session.test_cookie_worked():
+		print("TEST COOKIE WORKED!")
+		request.session.delete_test_cookie()
+
 	print(request.method)
 	# prints out the user name, if no one is logged in it prints `AnonymousUser`
 	print(request.user)
