@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles import finders
+from rango.models import Category
 
 # Thanks to Enzo Roiz https://github.com/enzoroiz who made these tests during an internship with us
 
@@ -248,3 +249,4 @@ class Chapter7ViewTests(TestCase):
 
 
     # test if the add_page.html template exists.
+
